@@ -133,12 +133,23 @@ push!(w, ex)
 showall(w)
 destroy(w)
 
-## Grid
+## Table
 grid = @Table(3,3)
 w = @Window(grid, "Grid", 400, 400)
 grid[2,2] = @Button("2,2")
 grid[2,3] = @Button("2,3")
 grid[1,1] = "grid"
+showall(w)
+destroy(w)
+
+## Grid
+grid = @Grid()
+w = @Window(grid, "Grid", 400, 400)
+grid[2,2] = @Button("2,2")
+grid[2,3] = @Button("2,3")
+grid[1,1] = "grid"
+insert!(grid,1,:top)
+deleteat!(grid,1,:row)
 showall(w)
 destroy(w)
 
