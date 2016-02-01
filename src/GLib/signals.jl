@@ -88,10 +88,10 @@ function GClosureMarshal(closuref, return_value, n_param_values,
         end
     end
     local retval = nothing
-    g_siginterruptible(cb) do
+    #g_siginterruptible(cb) do
         # note: make sure not to leak any of the GValue objects into this task switch, since many of them were alloca'd
         retval = cb(params...) # widget, args...
-    end
+    #end
     if return_value != C_NULL && retval !== nothing
         gtyp = unsafe_load(return_value).g_type
         if gtyp != g_type(Void) && gtyp != 0
